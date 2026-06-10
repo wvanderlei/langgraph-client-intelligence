@@ -1,0 +1,103 @@
+<svg width="680" height="670" viewBox="0 0 680 670" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Datalyx Client Intelligence — Arquitetura Multi-Agent</title>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .nd { cursor: pointer; }
+  </style>
+  <defs>
+    <marker id="arr-p" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#7F77DD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arr-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#378ADD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arr-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#444441" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arr-t" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="680" height="670" fill="#0D0F14"/>
+
+  <!-- StateGraph border -->
+  <rect x="26" y="72" width="628" height="530" rx="14" fill="#111318" stroke="#2A2640" stroke-width="1"/>
+  <rect x="26" y="72" width="628" height="530" rx="14" fill="none" stroke="#3C3489" stroke-width="0.5" stroke-dasharray="6 4"/>
+  <text x="48" y="96" font-size="11" font-weight="500" fill="#534AB7" letter-spacing="1">STATEGRAPH</text>
+
+  <!-- USUÁRIO -->
+  <rect x="258" y="14" width="164" height="44" rx="22" fill="#1A1730" stroke="#534AB7" stroke-width="1"/>
+  <text x="340" y="41" text-anchor="middle" font-size="14" font-weight="500" fill="#AFA9EC">Usuário</text>
+
+  <!-- user → supervisor -->
+  <line x1="340" y1="58" x2="340" y2="140" stroke="#7F77DD" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr-p)"/>
+
+  <!-- SUPERVISOR -->
+  <rect x="188" y="140" width="304" height="74" rx="12" fill="#1A1730" stroke="#7F77DD" stroke-width="1"/>
+  <rect x="188" y="140" width="304" height="74" rx="12" fill="none" stroke="#534AB7" stroke-width="0.5"/>
+  <text x="340" y="172" text-anchor="middle" font-size="14" font-weight="500" fill="#CECBF6">Supervisor</text>
+  <text x="340" y="196" text-anchor="middle" font-size="12" fill="#7F77DD">Orquestra · roteia · decide próximo nó</text>
+
+  <!-- Supervisor → resposta final -->
+  <path d="M188 168 Q72 168 72 36 L258 36" fill="none" stroke="#1D9E75" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr-t)"/>
+  <text x="50" y="100" text-anchor="middle" font-size="11" fill="#0F6E56">resposta</text>
+  <text x="50" y="114" text-anchor="middle" font-size="11" fill="#0F6E56">final</text>
+
+  <!-- SUPERVISOR → 3 AGENTES -->
+  <path d="M242 214 L130 308" fill="none" stroke="#7F77DD" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr-p)"/>
+  <line x1="340" y1="214" x2="340" y2="308" stroke="#7F77DD" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr-p)"/>
+  <path d="M438 214 L550 308" fill="none" stroke="#7F77DD" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr-p)"/>
+  <text x="172" y="256" text-anchor="middle" font-size="11" fill="#534AB7">query</text>
+  <text x="340" y="268" text-anchor="middle" font-size="11" fill="#534AB7">análise</text>
+  <text x="508" y="256" text-anchor="middle" font-size="11" fill="#534AB7">redação</text>
+
+  <!-- QUERY AGENT -->
+  <rect x="42" y="308" width="176" height="80" rx="10" fill="#0C2E24" stroke="#1D9E75" stroke-width="1"/>
+  <text x="130" y="340" text-anchor="middle" font-size="14" font-weight="500" fill="#9FE1CB">Query Agent</text>
+  <text x="130" y="358" text-anchor="middle" font-size="12" fill="#0F6E56">Busca dados no BigQuery</text>
+  <text x="130" y="374" text-anchor="middle" font-size="12" fill="#0F6E56">via function calling</text>
+
+  <!-- ANALYSIS AGENT -->
+  <rect x="252" y="308" width="176" height="80" rx="10" fill="#0C2E24" stroke="#1D9E75" stroke-width="1"/>
+  <text x="340" y="340" text-anchor="middle" font-size="14" font-weight="500" fill="#9FE1CB">Analysis Agent</text>
+  <text x="340" y="358" text-anchor="middle" font-size="12" fill="#0F6E56">Identifica padrões</text>
+  <text x="340" y="374" text-anchor="middle" font-size="12" fill="#0F6E56">churn · SLA · upsell</text>
+
+  <!-- WRITER AGENT -->
+  <rect x="462" y="308" width="176" height="80" rx="10" fill="#0C2E24" stroke="#1D9E75" stroke-width="1"/>
+  <text x="550" y="340" text-anchor="middle" font-size="14" font-weight="500" fill="#9FE1CB">Writer Agent</text>
+  <text x="550" y="358" text-anchor="middle" font-size="12" fill="#0F6E56">Redige briefings</text>
+  <text x="550" y="374" text-anchor="middle" font-size="12" fill="#0F6E56">relatórios executivos</text>
+
+  <!-- AGENTES → MEMORYSAVER -->
+  <path d="M130 388 Q130 456 218 474" fill="none" stroke="#444441" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#arr-g)"/>
+  <path d="M340 388 L340 466" fill="none" stroke="#444441" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#arr-g)"/>
+  <path d="M550 388 Q550 456 462 474" fill="none" stroke="#444441" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#arr-g)"/>
+
+  <!-- MEMORYSAVER -->
+  <rect x="198" y="466" width="284" height="68" rx="10" fill="#231A06" stroke="#BA7517" stroke-width="1"/>
+  <text x="340" y="497" text-anchor="middle" font-size="14" font-weight="500" fill="#FAC775">MemorySaver</text>
+  <text x="340" y="519" text-anchor="middle" font-size="12" fill="#854F0B">Contexto · histórico · estado compartilhado</text>
+
+  <!-- QUERY AGENT → BIGQUERY -->
+  <line x1="130" y1="388" x2="130" y2="558" stroke="#378ADD" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr-b)"/>
+
+  <!-- BIGQUERY -->
+  <rect x="42" y="558" width="176" height="68" rx="10" fill="#042C53" stroke="#185FA5" stroke-width="1"/>
+  <text x="130" y="589" text-anchor="middle" font-size="14" font-weight="500" fill="#85B7EB">BigQuery</text>
+  <text x="130" y="609" text-anchor="middle" font-size="12" fill="#185FA5">Contratos · Tickets · SLA</text>
+
+  <!-- LEGENDA -->
+  <rect x="300" y="562" width="348" height="96" rx="8" fill="#111318" stroke="#2A2640" stroke-width="0.5"/>
+  <text x="318" y="582" font-size="11" font-weight="500" fill="#5F5E5A" letter-spacing=".5">LEGENDA</text>
+  <line x1="318" y1="600" x2="356" y2="600" stroke="#7F77DD" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr-p)"/>
+  <text x="364" y="604" font-size="11" fill="#888780">fluxo LangGraph (orquestração)</text>
+  <line x1="318" y1="622" x2="356" y2="622" stroke="#1D9E75" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr-t)"/>
+  <text x="364" y="626" font-size="11" fill="#888780">resposta ao usuário</text>
+  <line x1="318" y1="644" x2="356" y2="644" stroke="#378ADD" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr-b)"/>
+  <text x="364" y="648" font-size="11" fill="#888780">acesso a dados</text>
+  <line x1="476" y1="600" x2="514" y2="600" stroke="#444441" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#arr-g)"/>
+  <text x="522" y="604" font-size="11" fill="#888780">contexto de sessão</text>
+</svg>

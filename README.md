@@ -51,24 +51,9 @@ GROUP BY cliente ORDER BY tickets DESC;
 
 ## Arquitetura
 
-```mermaid
-graph TD
-    U([👤 Usuário]) --> S
+![Arquitetura Multi-Agent](assets/architecture.svg)
 
-    S{🎯 Supervisor}
-
-    S -->|raw_data vazio| Q[🔍 Query Agent]
-    S -->|raw_data ok, sem análise| A[🧠 Analysis Agent]
-    S -->|análise ok, sem resposta| W[✍️ Writer Agent]
-    S -->|resposta pronta| R([💬 Resposta Final])
-
-    Q -->|dados do BigQuery| S
-    A -->|padrões identificados| S
-    W -->|briefing executivo| S
-
-    Q -.->|contratos, tickets, SLA| BQ[(📦 BigQuery)]
-    S & Q & A & W -.->|contexto da sessão| M[(💾 MemorySaver)]
-```
+> 🔗 [Versão interativa com animações](assets/architecture.html)
 
 ### Agentes
 
