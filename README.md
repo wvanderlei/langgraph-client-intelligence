@@ -6,7 +6,7 @@
 ![BigQuery](https://img.shields.io/badge/BigQuery-Google_Cloud-4285f4?style=flat-square&logo=googlecloud&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.35+-ff4b4b?style=flat-square&logo=streamlit&logoColor=white)
 
-> Sistema **multiagente** de inteligência de carteira de clientes. Faz perguntas em linguagem natural sobre contratos, tickets e SLA — e recebe análises executivas geradas por uma pipeline de agentes especializados conectada ao BigQuery.
+> Sistema **multiagente** de inteligência de carteira de clientes. Faça perguntas em linguagem natural sobre contratos, tickets e SLA e receba análises executivas geradas por uma pipeline de agentes especializados conectada ao BigQuery.
 
 ---
 
@@ -17,7 +17,7 @@
 <!-- Adicione aqui um GIF gravado com OBS/ScreenToGif -->
 <!-- ![Demo](assets/demo.gif) -->
 
-*▶ GIF em breve — grave com [ScreenToGif](https://www.screentogif.com/) e salve em `assets/demo.gif`*
+*▶ GIF em breve. Grave com [ScreenToGif](https://www.screentogif.com/) e salve em `assets/demo.gif`*
 
 ---
 
@@ -63,11 +63,11 @@ GROUP BY cliente ORDER BY tickets DESC;
 | **🔍 Query Agent** | Chama ferramentas BigQuery com function calling nativo do Gemini |
 | **🧠 Analysis Agent** | Identifica riscos de churn, SLA estourado e oportunidades de upsell |
 | **✍️ Writer Agent** | Transforma a análise em briefing executivo com tom direto |
-| **💾 MemorySaver** | Checkpointer LangGraph — mantém contexto entre perguntas da sessão |
+| **💾 MemorySaver** | Checkpointer do LangGraph, mantém contexto entre perguntas da sessão |
 
 ---
 
-## Dados (BigQuery — `datalyx_analytics`)
+## Dados (BigQuery: `datalyx_analytics`)
 
 | Tabela | Registros | Descrição |
 |---|---|---|
@@ -76,20 +76,20 @@ GROUP BY cliente ORDER BY tickets DESC;
 | `sla_metricas` | 1 por ticket | Tempo de resposta em horas, status de resolução |
 
 **Modelos de contrato Datalyx:**
-- **Radar** — pacote de horas avulso, menor comprometimento
-- **Forja** — mensalidade com horas fixas, médio engajamento
-- **Nexus** — contrato estratégico de alto valor, cliente fidelizado
+- **Radar**: pacote de horas avulso, menor comprometimento
+- **Forja**: mensalidade com horas fixas, médio engajamento
+- **Nexus**: contrato estratégico de alto valor, cliente fidelizado
 
 ---
 
 ## Stack técnica
 
 ```
-LangGraph       → Orquestração do grafo multiagente com StateGraph + MemorySaver
+LangGraph           → Orquestração do grafo multiagente com StateGraph + MemorySaver
 google-generativeai → LLM calls direto (Gemini 2.5 Flash, function calling nativo)
-BigQuery        → Fonte de dados real (3 tabelas, dataset datalyx_analytics)
-Streamlit       → Interface web com dark theme e status dos agentes em tempo real
-python-dotenv   → Gestão de credenciais via .env
+BigQuery            → Fonte de dados real (3 tabelas, dataset datalyx_analytics)
+Streamlit           → Interface web com dark theme e status dos agentes em tempo real
+python-dotenv       → Gestão de credenciais via .env
 ```
 
 **Por que `google-generativeai` direto e não `langchain-google-genai`?**
@@ -120,7 +120,7 @@ langgraph-client-intelligence/
 ### 1. Clonar e instalar
 
 ```bash
-git clone https://github.com/waydsonb/langgraph-client-intelligence.git
+git clone https://github.com/wvanderlei/langgraph-client-intelligence.git
 cd langgraph-client-intelligence
 pip install -r requirements.txt
 ```
@@ -169,6 +169,6 @@ Acesse **http://localhost:8501**
 Projeto desenvolvido como parte do portfólio de **LLM & AI Engineering** da [Datalyx](https://datalyx.com.br).
 
 Parte de uma trilha de 3 projetos:
-1. ✅ [`llm-document-intelligence`](https://github.com/waydsonb/llm-document-intelligence) — processamento de documentos com Gemini
-2. ✅ **`langgraph-client-intelligence`** ← você está aqui
-3. 🔜 `llmops-monitoring` — observabilidade e monitoramento de LLMs em produção
+1. ✅ [`llm-document-intelligence`](https://github.com/waydsonb/llm-document-intelligence) (processamento de documentos com Gemini)
+2. ✅ **`langgraph-client-intelligence`** - você está aqui
+3. 🔜 `llmops-monitoring` (observabilidade e monitoramento de LLMs em produção)
