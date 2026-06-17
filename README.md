@@ -51,7 +51,7 @@ GROUP BY cliente ORDER BY tickets DESC;
 
 ## Arquitetura
 
-![Arquitetura Multi-Agent](assets/architecture.svg)
+![Arquitetura Multi-Agent](assets/architecture.png)
 
 > 🔗 [Versão interativa com animações](assets/architecture.html)
 
